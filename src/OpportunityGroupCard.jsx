@@ -113,7 +113,7 @@ export default function OpportunityGroupCard({ group }) {
 
             {/* Card content area: contains the title, issuer, chain selector, description, features, and tags. */}
             <CardContent sx={{ flexGrow: 1}}>
-                <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'space-between', height:"40%", mb: 2 }}>
+                <Box sx={{ display: 'flex', flexDirection: "column", justifyContent: 'space-between',mb: 2 }}>
                     {/* Header section: token icon avatar and opportunity name with issuer subtitle. */}
                     <Box sx={{ display: 'flex', alignItems: 'center',   mb: 2}}>
                         <Avatar src={selected.tokenIcon} sx={{ width: 30, height: 30, mr: 1 }} />
