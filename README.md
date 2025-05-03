@@ -14,6 +14,8 @@ A React application that presents grouped investment opportunities in a clean, c
 
 [Portfolio Cards Demo](https://734htw-3000.csb.app/)
 
+Code available in [CondeSandbox](https://codesandbox.io/p/github/MiguelSchneider/NewPortfolioWithCards/main?workspaceId=ws_Po5J1psczBKszgtkJiprWX)
+
 ## Getting Started
 
 These instructions will help you run the project locally.
