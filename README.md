@@ -12,7 +12,7 @@ A React application that presents grouped investment opportunities in a clean, c
 
 ## Demo
 
-![Portfolio Cards Demo](./demo-screenshot.png)
+![Portfolio Cards Demo](https://734htw-3000.csb.app/)
 
 ## Getting Started
 
