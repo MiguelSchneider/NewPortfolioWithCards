@@ -2,11 +2,35 @@ const opportunities =
     [
         {
             "metaOpportunityId": 1,
+            "opportunityName": "BlackRock USD Institutional Digital Liquidity Fund Ltd. (\"BUIDL\")",
+            "image": "https://s3.us-east-2.amazonaws.com/securitize-public-files/oppid/1f3e32a0-41b6-4307-a927-babca1208cc5",
+            "description": " Seek current income as is consistent with liquidity and stability of principal.",
+            "opportunityFeatures": [
+                { "feature": "MinInvestment", "value": "$5M" },
+                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
+                { "feature": "MgmtFees", "value": "10bps" },
+                { "feature": "AssetClass", "value": "Diversified Credit" },
+                { "feature": "Redemptions", "value": "Instant" },
+            ],
+            "tags": [
+                "Daily Yield",
+                "Instant Liquidity",
+                "Collateral"
+            ],
+            "mainCurrency": "USD",
+            "minimumInvestment": 5000000,
+            "labels": [
+                "qualifiedPurchasers",
+                "alwaysOpen"
+            ]
+        },
+        {
+            "belongsToMetaOpportunityId": 1,
             "network": "ethereum",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/ethereum-eth-logo.svg",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
-                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
+                { "feature": "AnnualizedDistributionRate", "value": "4.14%" },
                 { "feature": "MgmtFees", "value": "10bps" },
                 { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Instant" },
@@ -36,7 +60,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "solana",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/solana-logo.svg",
             "opportunityFeatures": [
@@ -69,7 +93,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "polygon",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/polygon-matic-logo.svg",
 
@@ -96,7 +120,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "arbitrum",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/arbitrum-arb-logo.svg",
 
@@ -124,7 +148,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "avalanche",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/avalanche-avax-logo.svg",
 
@@ -151,7 +175,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "aptos",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/aptos-logo.svg",
 
@@ -178,10 +202,10 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 1,
+            "belongsToMetaOpportunityId": 1,
             "network": "optimism",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/optimism-ethereum-op-logo.svg",
-     
+
             "opportunityId": 362,
             "opportunityName": "BlackRock USD Institutional Digital Liquidity Fund Ltd. (\"BUIDL\")",
             "issuerId": "8ca7c16b-de67-43f3-8d04-037bf2bd9c8d",
@@ -205,7 +229,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "ethereum",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/ethereum-eth-logo.svg",
 
@@ -231,7 +255,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "solana",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/solana-logo.svg",
 
@@ -257,7 +281,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "ink",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/ink-logo.svg",
 
@@ -283,7 +307,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "aptos",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/aptos-logo.svg",
 
@@ -309,7 +333,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "avalanche",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/avalanche-avax-logo.svg",
 
@@ -335,7 +359,7 @@ const opportunities =
             ]
         },
         {
-            "metaOpportunityId": 2,
+            "belongsToMetaOpportunityId": 2,
             "network": "polygon",
             "networkIcon": "https://securitize-network-icons-bucket.s3.us-east-2.amazonaws.com/polygon-matic-logo.svg",
 

@@ -8,7 +8,7 @@ export default function OpportunitiesList() {
     const groups = useMemo(() => {
         const map = {}
         opportunities.forEach((opp) => {
-            const key = opp.metaOpportunityId ?? opp.opportunityId
+            const key = opp.belongsToMetaOpportunityId ?? opp.opportunityId
             if (!map[key]) map[key] = []
             map[key].push(opp)
         })
@@ -27,7 +27,7 @@ export default function OpportunitiesList() {
             }}
         >
             {groups.map((group) => {
-                const key = group[0].metaOpportunityId ?? group[0].opportunityId
+                const key = group[0].belongsToMetaOpportunityId ?? group[0].opportunityId
                 return (
                     <Box
                         key={key}
