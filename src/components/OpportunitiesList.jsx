@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react'
 import { Box } from '@mui/material'
 import OpportunityGroupCard from './OpportunityGroupCard'
-import opportunities from './OpportunitiesJSON'
+import opportunities from '../data/OpportunitiesJSON'
 
 export default function OpportunitiesList() {
     const groups = useMemo(() => {

@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-// import './App.css';
-import OpportunitiesList from './OpportunitiesList';
+
+import OpportunitiesList from './components/OpportunitiesList';
 
 function App() {
   return (
