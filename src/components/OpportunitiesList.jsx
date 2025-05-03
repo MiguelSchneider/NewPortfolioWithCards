@@ -34,7 +34,7 @@ export default function OpportunitiesList() {
                         sx={{
                             // each card box is 300px wide, shrinking to 100% on very small screens
                             //   flex: '0 1 380px',
-                            flex: '0 1 320px',
+                            flex: '0 1 340px',
                             // flex: '0 1 100%',
               
                         }}
