@@ -125,7 +125,7 @@ export default function OpportunityGroupCard({ group }) {
 
                 <Box sx={{ display: 'flex', flexDirection: "column" }}>
                     {/* Header section: token icon avatar and opportunity name with issuer subtitle. */}
-                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: "#ebebeb", mb: 2, padding: 1, height: "70px" }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: "#ebebeb", mb: 1, padding: 0, height: "70px" }}>
                         <Avatar src={selected.tokenIcon} sx={{ width: 30, height: 30, mr: 1 }} />
                         <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'left', mb: 0, fontSize: "18px" }}>
                             {selected.opportunityName}
@@ -135,13 +135,12 @@ export default function OpportunityGroupCard({ group }) {
                                 </Typography>
                             </Box>
                         </Box>
-
                     </Box>
 
                     {/* If multiple chains are available, render a dropdown to select the active chain. */}
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0, padding: 1 }}>
                         {children.length > 0 && (
-                            <FormControl size="small" sx={{ mr: 2, minWidth: '70%' }}>
+                            <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
                                 {/* <InputLabel id="select-chain-label" >Select Chain</InputLabel> */}
                                 <Select
                                     labelId="select-chain-label"
@@ -174,7 +173,7 @@ export default function OpportunityGroupCard({ group }) {
                                         );
                                     }}
                                 >
-                                    <MenuItem value="" disabled>Select Chain</MenuItem>
+                                    <MenuItem value="" disabled >Select Chain</MenuItem>
                                     {children.map((opp) => (
                                         <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
                                             <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>

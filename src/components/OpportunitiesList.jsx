@@ -22,7 +22,7 @@ export default function OpportunitiesList() {
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: 2,               // spacing between cards (theme spacing units)
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 p: 2,
             }}
         >
