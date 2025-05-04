@@ -8,7 +8,7 @@ const opportunities =
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/8ca7c16b-de67-43f3-8d04-037bf2bd9c8d/0a6c7446-567e-4456-b722-f52f5cea942c-token-icon",
 
             "opportunityName": "BlackRock USD Institutional Digital Liquidity Fund Ltd. (\"BUIDL\")",
-            "image": "./images/BUIDL by BlackRock.png",
+            "image": "./images/Buidl.png",
             "description": " Seek current income as is consistent with liquidity and stability of principal.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
@@ -289,6 +289,7 @@ const opportunities =
             "metaOpportunityId": 2,
             "belongsToMetaOpportunityId": 2,
             "opportunityId": 2,
+            "issuerName": "Apollo Diversified Credit Securitize Fund",
             "opportunityName": "Apollo Diversified Credit Securitize Fund",
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/e67c980e-e1dd-462b-bb2f-3a484f061fe1/ecfafbee-be0f-461d-b0fb-6075cf0d16bb-token-icon",
 
