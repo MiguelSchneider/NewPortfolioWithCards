@@ -30,9 +30,9 @@ const StatusLabels = ({ labels }) => (
         key={lbl}
         label={
           lbl === 'alwaysOpen'
-            ? 'Always Open'
+            ? 'Evergreen'
             : lbl === 'qualifiedPurchasers'
-            ? 'Qualified'
+            ? 'Qualified Purchasers'
             : lbl
         }
         size="small"

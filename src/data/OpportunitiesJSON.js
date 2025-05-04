@@ -9,7 +9,7 @@ const opportunities =
 
             "opportunityName": "BlackRock USD Institutional Digital Liquidity Fund Ltd. (\"BUIDL\")",
             "image": "./images/Buidl.png",
-            "description": " Seek current income as is consistent with liquidity and stability of principal.",
+            "description": " The Fund aims to generate stable, liquid current income by investing exclusively in high-quality, short-term U.S. Treasury obligations, repurchase agreements secured by those obligations or cash, and similar minimal-credit-risk instruments.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
                 { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
