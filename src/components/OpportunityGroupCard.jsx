@@ -253,7 +253,7 @@ export default function OpportunityGroupCard({ group }) {
                 </Typography>
 
                 {/* Feature list: displays key/value pairs with flip animation for emphasis. */}
-                {selected.opportunityFeatures && selected.opportunityFeatures.length > 0 && (
+                {selected.opportunityFeatures  && (
                     <FeatureList features={selected.opportunityFeatures} />
                 )}
 
