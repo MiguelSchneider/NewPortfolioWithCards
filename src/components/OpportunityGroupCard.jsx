@@ -120,7 +120,7 @@ const ChainSelector = ({ children, selected, setSelectedId }) => (
       </FormControl>
     )}
     {!selected.metaOpportunityId && (
-      <Button variant="contained" size="small" href={selected.dashboardUrl} target="_blank">
+    <Button variant="contained" size="small" href={'https://id.securitize.io/primary-market/opportunities/'+selected.opportunityId} target="_blank">
         Invest
       </Button>
     )}
