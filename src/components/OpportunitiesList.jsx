@@ -1,10 +1,16 @@
-// src/components/OpportunitiesList.jsx
+/**
+ * OpportunitiesList.jsx
+ *
+ * Groups raw opportunity data into logical sets for display.
+ * Uses useMemo to efficiently memoize grouping computations.
+ * Renders a responsive grid of OpportunityGroupCard components.
+ */
 import React, { useMemo } from 'react'
 import { Box } from '@mui/material'
 import OpportunityGroupCard from './OpportunityGroupCard'
-import opportunities from '../data/OpportunitiesJSON'
 
-export default function OpportunitiesList() {
+export default function OpportunitiesList({ opportunities }) {
+    // Group opportunities by their metaOpportunityId (or fallback to opportunityId) for card rendering.
     const groups = useMemo(() => {
         const map = {}
         opportunities.forEach((opp) => {
@@ -13,8 +19,9 @@ export default function OpportunitiesList() {
             map[key].push(opp)
         })
         return Object.values(map)
-    }, [])
+    }, [opportunities])
 
+    // Layout container: flex-wrap grid with centered cards and uniform gap.
     return (
         <Box
             component="section"
@@ -26,17 +33,16 @@ export default function OpportunitiesList() {
                 p: 2,
             }}
         >
+            {/* Iterate through each grouped array to render its corresponding card. */}
             {groups.map((group) => {
                 const key = group[0].belongsToMetaOpportunityId ?? group[0].opportunityId
+                // Card wrapper: fixed-width, responsive box for each opportunity group.
                 return (
                     <Box
                         key={key}
                         sx={{
-                            // each card box is 300px wide, shrinking to 100% on very small screens
-                            //   flex: '0 1 380px',
-                            flex: '0 1 340px',
-                            // flex: '0 1 100%',
-              
+                            // each card box is 340px wide, shrinking to 100% on very small screens
+                            flex: '0 1 340px',              
                         }}
                     >
                         <OpportunityGroupCard group={group} />

@@ -87,14 +87,6 @@ const opportunities =
             "dashboardUrl": "https://blackrock.invest.securitize.io",
             "image": "https://s3.us-east-2.amazonaws.com/securitize-public-files/oppid/0e8e8b0b-39de-4ecd-ab63-f561785b3add",
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/8ca7c16b-de67-43f3-8d04-037bf2bd9c8d/2ba7685e-7743-40ee-b1af-5ee5ac873379-token-icon",
-            "opportunityFeatures": [
-                { "feature": "MinInvestment", "value": "$4M" },
-                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
-                { "feature": "MgmtFees", "value": "6bps" },
-                { "feature": "AssetClass", "value": "Diversified Credit" },
-                { "feature": "Redemptions", "value": "Daily" },
-
-            ],
             "tags": [
                 "Daily Yield",
                 // "Instant Liquidity",
