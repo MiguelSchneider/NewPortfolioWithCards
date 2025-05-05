@@ -153,8 +153,8 @@ const FeatureList = ({ features }) => (
                     mb: 0,
                     padding: 0.4,
                     fontSize: '12px',
-                    // borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
-                    backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
+                    borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
+                    // backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
                 }}
             >
                 <Box><strong>{feat.feature}</strong>:</Box>
