@@ -8,7 +8,7 @@ const opportunities =
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/8ca7c16b-de67-43f3-8d04-037bf2bd9c8d/0a6c7446-567e-4456-b722-f52f5cea942c-token-icon",
 
             "opportunityName": "BlackRock USD Institutional Digital Liquidity Fund Ltd. (\"BUIDL\")",
-            "image": "./images/Buidl.png",
+            "image": "./images/buidl2.png",
             "description": " The Fund aims to generate stable, liquid current income by investing exclusively in high-quality, short-term U.S. Treasury obligations, repurchase agreements secured by those obligations or cash, and similar minimal-credit-risk instruments.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
@@ -285,7 +285,7 @@ const opportunities =
             "opportunityName": "Apollo Diversified Credit Securitize Fund",
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/e67c980e-e1dd-462b-bb2f-3a484f061fe1/ecfafbee-be0f-461d-b0fb-6075cf0d16bb-token-icon",
 
-            "image": "./images/Acred.png",
+            "image": "./images/apollo.png",
             "description": "Generate a return comprised of both current income and capital appreciation.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$50K" },
@@ -493,7 +493,6 @@ const opportunities =
                 { "feature": "MinInvestment", "value": "$50K" },
                 { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
                 { "feature": "MgmtFees", "value": "20bps" },
-                { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Quartely" },
             ],
             "tags": [
@@ -527,6 +526,13 @@ const opportunities =
                 "On-Demand Liquidity",
                 "Collateral"
             ],
+            "opportunityFeatures": [
+             
+                { "feature": "MgmtFees", "value": "20bps" },
+                { "feature": "AssetClass", value: "Diversified Credit" },
+                { "feature": "Redemptions", value: "Daily" },
+
+            ],
             "mainCurrency": "USD",
             "minimumInvestment": 10000,
             "labels": [
@@ -552,6 +558,11 @@ const opportunities =
             "tags": [
                 "Private Equity",
                 "Secondaries"
+            ],
+            "opportunityFeatures": [
+                { "feature": "MinInvestment", "value": "$5M" },
+                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
+                { "feature": "Redemptions", "value": "Daily - Instant" },
             ],
             "mainCurrency": "USD",
             "minimumInvestment": 20000,
@@ -579,6 +590,10 @@ const opportunities =
                 "Private Equity",
                 "Co-investment"
             ],
+            "opportunityFeatures": [
+                { "feature": "MinInvestment", "value": "$5M" },
+                { "feature": "MgmtFees", "value": "8bps - 10bps" },
+            ],
             "mainCurrency": "USD",
             "minimumInvestment": 20000,
             "labels": [
@@ -604,6 +619,11 @@ const opportunities =
             "tokenIcon": "https://s3.us-east-2.amazonaws.com/securitize-public-files/perm/ab431805-6765-49e6-9c42-6c6354e216d7/be0b86b4-a46e-4edc-ba24-6a709de3bc21-token-icon",
             "tags": [
                 "Reinsurance"
+            ],
+            "opportunityFeatures": [
+                { "feature": "MinInvestment", "value": "$5M" },
+                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
+
             ],
             "mainCurrency": "USD",
             "minimumInvestment": 20000,

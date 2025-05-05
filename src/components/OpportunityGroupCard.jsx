@@ -24,167 +24,168 @@ import { Card, CardMedia, CardContent, Typography, Chip, Button, Avatar, Box, Se
 
 // Helper to render status labels
 const StatusLabels = ({ labels }) => (
-  <Box sx={{ position: 'absolute', top: 8, left: 8, display: 'flex', gap: 1 }}>
-    {labels?.map((lbl) => (
-      <Chip
-        key={lbl}
-        label={
-          lbl === 'alwaysOpen'
-            ? 'Evergreen'
-            : lbl === 'qualifiedPurchasers'
-            ? 'Qualified Purchasers'
-            : lbl
-        }
-        size="small"
-        color={lbl.includes('qualified') ? 'secondary' : 'primary'}
-        sx={{
-          textTransform: 'capitalize',
-          backgroundColor: 'white',
-          color: 'black',
-          borderRadius: '4px',
-          height: '20px',
-          fontSize: '0.65rem',
-          fontWeight: 500,
-        }}
-      />
-    ))}
-  </Box>
+    <Box sx={{ position: 'absolute', top: 8, left: 8, display: 'flex', gap: 1 }}>
+        {labels?.map((lbl) => (
+            <Chip
+                key={lbl}
+                label={
+                    lbl === 'alwaysOpen'
+                        ? 'Evergreen'
+                        : lbl === 'qualifiedPurchasers'
+                            ? 'Qualified Purchasers'
+                            : lbl
+                }
+                size="small"
+                color={lbl.includes('qualified') ? 'secondary' : 'primary'}
+                sx={{
+                    textTransform: 'capitalize',
+                    backgroundColor: 'white',
+                    color: 'black',
+                    borderRadius: '4px',
+                    height: '20px',
+                    fontSize: '0.65rem',
+                    fontWeight: 500,
+                }}
+            />
+        ))}
+    </Box>
 );
 
 // Helper to render network avatars
 const NetworkAvatars = ({ group }) => (
-  <Box
-    sx={{
-      display: 'flex',
-      alignItems: 'center',
-      gap: 1,
-      mb: 1,
-      position: 'absolute',
-      bottom: 0,
-      right: 8,
-    }}
-  >
-    {group.map((opp) =>
-      opp.networkIcon ? (
-        <Avatar
-          key={opp.opportunityId}
-          src={opp.networkIcon}
-          variant="circular"
-          sx={{ width: 12, height: 12, backgroundColor: 'white' }}
-        />
-      ) : null
-    )}
-  </Box>
+    <Box
+        sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '3px',
+            mb: 1,
+            position: 'absolute',
+            bottom: 0,
+            left: 8,
+        }}
+    >
+        {group.map((opp) =>
+            opp.networkIcon ? (
+                <Avatar
+                    key={opp.opportunityId}
+                    src={opp.networkIcon}
+                    variant="circular"
+                    sx={{ width: 12, height: 12, padding: "2px", borderRadius:"20%", backgroundColor: 'white' }}
+                />
+            ) : null
+        )}
+    </Box>
 );
 
 // Helper for chain selector and invest button
 const ChainSelector = ({ children, selected, setSelectedId }) => (
-  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0, p: 1 }}>
-    {children.length > 0 && (
-      <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
-        <Select
-          value={selected.opportunityId}
-          onChange={(e) => setSelectedId(e.target.value)}
-          displayEmpty
-          renderValue={(value) => {
-            const opp = children.find((o) => o.opportunityId === value);
-            if (!value || !opp) {
-              return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
-            }
-            return (
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {(opp.networkIcon || opp.tokenIcon) && (
-                  <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                )}
-                <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                  {opp.network ?? `#${value}`}
-                </Typography>
-              </Box>
-            );
-          }}
-        >
-          <MenuItem value="" disabled>
-            Select Chain
-          </MenuItem>
-          {children.map((opp) => (
-            <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-                {(opp.networkIcon || opp.tokenIcon) && (
-                  <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                )}
-                <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
-              </Box>
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    )}
-    {!selected.metaOpportunityId && (
-    <Button variant="contained" size="small" href={'https://id.securitize.io/primary-market/opportunities/'+selected.opportunityId} target="_blank">
-        Invest
-      </Button>
-    )}
-  </Box>
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0, p: 1 }}>
+        {children.length > 0 && (
+            <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
+                <Select
+                    value={selected.opportunityId}
+                    onChange={(e) => setSelectedId(e.target.value)}
+                    displayEmpty
+                    renderValue={(value) => {
+                        const opp = children.find((o) => o.opportunityId === value);
+                        if (!value || !opp) {
+                            return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
+                        }
+                        return (
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                {(opp.networkIcon || opp.tokenIcon) && (
+                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                                )}
+                                <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
+                                    {opp.network ?? `#${value}`}
+                                </Typography>
+                            </Box>
+                        );
+                    }}
+                >
+                    <MenuItem value="" disabled>
+                        Select Chain
+                    </MenuItem>
+                    {children.map((opp) => (
+                        <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                                {(opp.networkIcon || opp.tokenIcon) && (
+                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                                )}
+                                <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
+                            </Box>
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        )}
+        {!selected.metaOpportunityId && (
+            <Button variant="contained" size="small" href={'https://id.securitize.io/primary-market/opportunities/' + selected.opportunityId} target="_blank">
+                Invest
+            </Button>
+        )}
+    </Box>
 );
 
 // Helper to render feature list
 const FeatureList = ({ features }) => (
-  <Box
-    sx={{
-      mb: 2,
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      padding: 1,
-      margin: 1,
-      transformStyle: 'preserve-3d',
-      animation: 'flipIn 0.6s',
-      '@keyframes flipIn': {
-        '0%': { transform: 'rotateY(90deg)', opacity: 0 },
-        '100%': { transform: 'rotateY(0deg)', opacity: 1 },
-      },
-    }}
-  >
-    {features.map((feat, idx) => (
-      <Box
-        key={feat.feature}
+    <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          mb: 0,
-          padding: 0.4,
-          fontSize: '12px',
-          backgroundColor: idx % 2 === 0 ? '#ebebeb' : 'white',
+            mb: 2,
+            // border: '1px solid #ccc',
+            // borderRadius: '4px',
+            padding: 1,
+            margin: 1,
+            transformStyle: 'preserve-3d',
+            animation: 'flipIn 0.6s',
+            '@keyframes flipIn': {
+                '0%': { transform: 'rotateY(90deg)', opacity: 0 },
+                '100%': { transform: 'rotateY(0deg)', opacity: 1 },
+            },
         }}
-      >
-        <Box><strong>{feat.feature}</strong>:</Box>
-        <Box>{feat.value}</Box>
-      </Box>
-    ))}
-  </Box>
+    >
+        {features.map((feat, idx) => (
+            <Box
+                key={feat.feature}
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    mb: 0,
+                    padding: 0.4,
+                    fontSize: '12px',
+                    // borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
+                    backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
+                }}
+            >
+                <Box><strong>{feat.feature}</strong>:</Box>
+                <Box>{feat.value}</Box>
+            </Box>
+        ))}
+    </Box>
 );
 
 // Helper to render tags
 const TagChips = ({ tags }) => (
-  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, padding: 1 }}>
-    {tags.map((t) => (
-      <Chip
-        key={t}
-        label={t}
-        size="small"
-        variant="outlined"
-        sx={{
-          textTransform: 'capitalize',
-          backgroundColor: '#ebebeb',
-          color: '#7f7f7f',
-          borderRadius: '4px',
-          px: 0.1,
-          py: 0.5,
-          fontSize: '0.65rem',
-          fontWeight: 500,
-        }}
-      />
-    ))}
-  </Box>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, padding: 1 }}>
+        {tags.map((t) => (
+            <Chip
+                key={t}
+                label={t}
+                size="small"
+                variant="outlined"
+                sx={{
+                    textTransform: 'capitalize',
+                    backgroundColor: '#ebebeb',
+                    color: '#7f7f7f',
+                    borderRadius: '4px',
+                    px: 0.1,
+                    py: 0.5,
+                    fontSize: '0.65rem',
+                    fontWeight: 500,
+                }}
+            />
+        ))}
+    </Box>
 );
 
 // State and grouping variables:
@@ -202,12 +203,15 @@ export default function OpportunityGroupCard({ group }) {
 
     // Render the MUI Card with flex layout to occupy full height and stack content vertically.
     return (
-        <Card
+        <Box
             sx={{
                 width: '100%',       // fill the 300px box (or shrink smaller if needed)
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
+                border: '1px solid #ccc',
+                borderRadius: '8px',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
             }}
         >
             {/* Opportunity image: fills top of card; alt text tied to opportunity name for accessibility. */}
@@ -221,7 +225,9 @@ export default function OpportunityGroupCard({ group }) {
                 {/* Status labels overlay: e.g. "Always Open" or "Qualified". */}
                 <StatusLabels labels={selected.labels} />
                 {/* Bottom-right corner: render small avatars for each available network in the group. */}
-                <NetworkAvatars group={group} />
+                {selected.metaOpportunityId && (
+                    <NetworkAvatars group={group} />
+                )}
             </Box>
 
             {/* Main content area: includes header, selector, description, features list, and tags. */}
@@ -252,15 +258,16 @@ export default function OpportunityGroupCard({ group }) {
                     {selected.description}
                 </Typography>
 
-                {/* Feature list: displays key/value pairs with flip animation for emphasis. */}
-                {selected.opportunityFeatures  && (
-                    <FeatureList features={selected.opportunityFeatures} />
-                )}
-
+                <Box sx={{ display: 'flex', flexDirection: "column", width: '100%', justifyContent: 'space-between' }}>
+                    {/* Feature list: displays key/value pairs with flip animation for emphasis. */}
+                    {selected.opportunityFeatures && (
+                        <FeatureList features={selected.opportunityFeatures} />
+                    )}
+                </Box>
                 {/* Category tags: rendered as outlined chips to convey additional attributes. */}
-                <TagChips tags={selected.tags} />
             </CardContent>
-        </Card>
+            <TagChips tags={selected.tags} />
+        </Box>
     )
 }
 // End of OpportunityGroupCard component
