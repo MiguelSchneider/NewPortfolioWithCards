@@ -30,7 +30,8 @@ export default function OpportunitiesList({ opportunities }) {
                 flexWrap: 'wrap',
                 gap: 2,               // spacing between cards (theme spacing units)
                 justifyContent: 'center',
-                p: 2,
+                // p: 2,
+                paddingBottom:4,
             }}
         >
             {/* Iterate through each grouped array to render its corresponding card. */}
