@@ -39,9 +39,9 @@ function App() {
         <Drawer
           variant="permanent"
           sx={{
-            width: drawerWidth,
+            width: isMobile ? '100%' : drawerWidth,
             flexShrink: 0,
-            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+            [`& .MuiDrawer-paper`]: { width: isMobile ? '100%' : drawerWidth, boxSizing: 'border-box' },
           }}
         >
           <Toolbar />
