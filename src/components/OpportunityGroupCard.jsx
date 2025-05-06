@@ -77,56 +77,62 @@ const NetworkAvatars = ({ group }) => (
     </Box>
 );
 
+
 // Helper for chain selector and invest button
 const ChainSelector = ({ children, selected, setSelectedId }) => (
     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0, p: 1 }}>
-        {children.length > 0 && (
-            <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
-                <Select
-                    value={selected.opportunityId}
-                    onChange={(e) => setSelectedId(e.target.value)}
-                    displayEmpty
-                    renderValue={(value) => {
-                        const opp = children.find((o) => o.opportunityId === value);
-                        if (!value || !opp) {
-                            return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
-                        }
-                        return (
-                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                {(opp.networkIcon || opp.tokenIcon) && (
-                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                                )}
-                                <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                                    {opp.network ?? `#${value}`}
-                                </Typography>
-                            </Box>
-                        );
-                    }}
-                >
-                    <MenuItem value="" disabled>
-                        Select Chain
-                    </MenuItem>
-                    {children.map((opp) => (
-                        <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-                                {(opp.networkIcon || opp.tokenIcon) && (
-                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                                )}
-                                <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
-                            </Box>
-                        </MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-        )}
-        {!selected.metaOpportunityId && (
-            <Button variant="contained" size="small" href={'https://id.securitize.io/primary-market/opportunities/' + selected.opportunityId} target="_blank">
-                Invest
-            </Button>
-        )}
+      {children.length > 0 && (
+        <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
+          <Select
+            value={selected.opportunityId}
+            onChange={(e) => setSelectedId(e.target.value)}
+            displayEmpty
+            renderValue={(value) => {
+              const opp = children.find((o) => o.opportunityId === value);
+              if (!value || !opp) {
+                return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
+              }
+              return (
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  {(opp.networkIcon || opp.tokenIcon) && (
+                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                  )}
+                  <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
+                    {opp.network ?? `#${value}`}
+                  </Typography>
+                </Box>
+              );
+            }}
+          >
+            <MenuItem value="" disabled>
+              Select Chain
+            </MenuItem>
+            {children.map((opp) => (
+              <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
+                <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                  {(opp.networkIcon || opp.tokenIcon) && (
+                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                  )}
+                  <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
+                </Box>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      )}
+  
+      {/* Always render the button; disable it & remove the link when no chain is selected */}
+      <Button
+        variant="contained"
+        size="small"
+        href={!selected.metaOpportunityId ? `https://id.securitize.io/primary-market/opportunities/${selected.opportunityId}` : undefined}
+        target={!selected.metaOpportunityId ? "_blank" : undefined}
+        disabled={Boolean(selected.metaOpportunityId)}
+      >
+        Invest
+      </Button>
     </Box>
-);
-
+  );
 // Helper to render feature list
 const FeatureList = ({ features }) => (
     <Box
