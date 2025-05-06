@@ -25,13 +25,15 @@ function App() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
 
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Primary offerings
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      {!isMobile && (
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+          <Toolbar>
+            <Typography variant="h6" noWrap component="div">
+              Primary offerings
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      )}
 
       {!isMobile && (
         <Drawer
@@ -71,7 +73,7 @@ function App() {
       )}
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
+        {!isMobile && <Toolbar />}
         <OpportunitiesList opportunities={opportunities} />
       </Box>
 
