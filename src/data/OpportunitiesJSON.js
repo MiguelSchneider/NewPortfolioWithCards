@@ -289,7 +289,6 @@ const opportunities =
             "description": "Generate a return comprised of both current income and capital appreciation.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$50K" },
-                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
                 { "feature": "MgmtFees", "value": "20bps" },
                 { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Quartely" },
