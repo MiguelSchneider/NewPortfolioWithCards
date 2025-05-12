@@ -156,6 +156,8 @@ const FeatureList = ({ features }) => (
                 key={feat.feature}
                 title={feat.tooltip || ''}
                 disableHoverListener={!feat.tooltip}
+                enterTouchDelay={0}
+                leaveTouchDelay={1500}
                 arrow
             >
                 <Box
