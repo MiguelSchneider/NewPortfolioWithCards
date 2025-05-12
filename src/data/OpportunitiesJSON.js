@@ -12,7 +12,7 @@ const opportunities =
             "description": " The Fund aims to generate stable, liquid current income by investing exclusively in high-quality, short-term U.S. Treasury obligations, repurchase agreements secured by those obligations or cash, and similar minimal-credit-risk instruments.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
-                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%" },
+                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%", "tooltip":"This is a simple tooltip to show the Annualized Distribution Rate" },
                 { "feature": "MgmtFees", "value": "8bps - 10bps" },
                 { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Daily - Instant" },

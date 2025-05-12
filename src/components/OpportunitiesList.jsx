@@ -44,9 +44,18 @@ export default function OpportunitiesList({ opportunities }) {
                         sx={{
                             // each card box is 340px wide, shrinking to 100% on very small screens
                             // flex: '0 1 340px',  
+                            // display: 'flex',
+                            // flexDirection: 'column',
+                            // width: '340px', // minimum width for each card           
                             display: 'flex',
                             flexDirection: 'column',
-                            width: '340px', // minimum width for each card           
+                            // width: '30%', // minimum width for each card   
+                            maxWidth: '653px', // maximum width for each card
+                            minWidth: '315px', // minimum width for each card    
+                            height:'636px',
+                            justifyContent: 'center',
+                            alignItems: 'flex-start',
+                            flex: '1 0 0', 
                         }}
                     >
                         <OpportunityGroupCard group={group} />

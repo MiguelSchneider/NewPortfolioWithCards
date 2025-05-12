@@ -20,7 +20,8 @@
  *  - Conditionally renders UI controls and animations.
  */
 import React, { useState, useMemo } from 'react'
-import { Card, CardMedia, CardContent, Typography, Chip, Button, Avatar, Box, Select, MenuItem, FormControl } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography, Chip, Button, Avatar, Box, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 // Helper to render status labels
 const StatusLabels = ({ labels }) => (
@@ -70,7 +71,7 @@ const NetworkAvatars = ({ group }) => (
                     key={opp.opportunityId}
                     src={opp.networkIcon}
                     variant="circular"
-                    sx={{ width: 12, height: 12, padding: "2px", borderRadius:"20%", backgroundColor: 'white' }}
+                    sx={{ width: 12, height: 12, padding: "2px", borderRadius: "20%", backgroundColor: 'white' }}
                 />
             ) : null
         )}
@@ -81,58 +82,58 @@ const NetworkAvatars = ({ group }) => (
 // Helper for chain selector and invest button
 const ChainSelector = ({ children, selected, setSelectedId }) => (
     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0, p: 1 }}>
-      {children.length > 0 && (
-        <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
-          <Select
-            value={selected.opportunityId}
-            onChange={(e) => setSelectedId(e.target.value)}
-            displayEmpty
-            renderValue={(value) => {
-              const opp = children.find((o) => o.opportunityId === value);
-              if (!value || !opp) {
-                return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
-              }
-              return (
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  {(opp.networkIcon || opp.tokenIcon) && (
-                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                  )}
-                  <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
-                    {opp.network ?? `#${value}`}
-                  </Typography>
-                </Box>
-              );
-            }}
-          >
-            <MenuItem value="" disabled>
-              Select Chain
-            </MenuItem>
-            {children.map((opp) => (
-              <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
-                <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-                  {(opp.networkIcon || opp.tokenIcon) && (
-                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
-                  )}
-                  <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
-                </Box>
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      )}
-  
-      {/* Always render the button; disable it & remove the link when no chain is selected */}
-      <Button
-        variant="contained"
-        size="small"
-        href={!selected.metaOpportunityId ? `https://id.securitize.io/primary-market/opportunities/${selected.opportunityId}` : undefined}
-        target={!selected.metaOpportunityId ? "_blank" : undefined}
-        disabled={Boolean(selected.metaOpportunityId)}
-      >
-        Invest
-      </Button>
+        {children.length > 0 && (
+            <FormControl size="small" sx={{ mr: 1, minWidth: '70%' }}>
+                <Select
+                    value={selected.opportunityId}
+                    onChange={(e) => setSelectedId(e.target.value)}
+                    displayEmpty
+                    renderValue={(value) => {
+                        const opp = children.find((o) => o.opportunityId === value);
+                        if (!value || !opp) {
+                            return <Typography sx={{ fontSize: '0.75rem', color: '#999' }}>Select Chain</Typography>;
+                        }
+                        return (
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                {(opp.networkIcon || opp.tokenIcon) && (
+                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                                )}
+                                <Typography variant="body2" sx={{ fontSize: '0.875rem' }}>
+                                    {opp.network ?? `#${value}`}
+                                </Typography>
+                            </Box>
+                        );
+                    }}
+                >
+                    <MenuItem value="" disabled>
+                        Select Chain
+                    </MenuItem>
+                    {children.map((opp) => (
+                        <MenuItem key={opp.opportunityId} value={opp.opportunityId}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+                                {(opp.networkIcon || opp.tokenIcon) && (
+                                    <Avatar src={opp.networkIcon ?? opp.tokenIcon} sx={{ width: 20, height: 20, mr: 1 }} />
+                                )}
+                                <Typography variant="body2">{opp.network ?? `#${opp.opportunityId}`}</Typography>
+                            </Box>
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        )}
+
+        {/* Always render the button; disable it & remove the link when no chain is selected */}
+        <Button
+            variant="contained"
+            size="small"
+            href={!selected.metaOpportunityId ? `https://id.securitize.io/primary-market/opportunities/${selected.opportunityId}` : undefined}
+            target={!selected.metaOpportunityId ? "_blank" : undefined}
+            disabled={Boolean(selected.metaOpportunityId)}
+        >
+            Invest
+        </Button>
     </Box>
-  );
+);
 // Helper to render feature list
 const FeatureList = ({ features }) => (
     <Box
@@ -151,21 +152,32 @@ const FeatureList = ({ features }) => (
         }}
     >
         {features.map((feat, idx) => (
-            <Box
+            <Tooltip
                 key={feat.feature}
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    mb: 0,
-                    padding: 0.4,
-                    fontSize: '12px',
-                    borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
-                    // backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
-                }}
+                title={feat.tooltip || ''}
+                disableHoverListener={!feat.tooltip}
+                arrow
             >
-                <Box><strong>{feat.feature}</strong>:</Box>
-                <Box>{feat.value}</Box>
-            </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        mb: 0,
+                        padding: 0.4,
+                        fontSize: '12px',
+                        borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
+                        // backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
+                    }}
+                >
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <strong>{feat.feature}</strong>
+                        :
+                        {feat.tooltip && <InfoOutlinedIcon fontSize="small" sx={{ ml: 0.5 }} />}
+                        
+                    </Box>
+                    <Box>{feat.value}</Box>
+                </Box>
+            </Tooltip>
         ))}
     </Box>
 );
@@ -244,10 +256,24 @@ export default function OpportunityGroupCard({ group }) {
             }}>
                 {/* Header bar: shows the opportunity’s token icon, name, and issuer name in small-caps. */}
                 <Box sx={{ display: 'flex', flexDirection: "column" }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: "#ebebeb", mb: 1, padding: 0, height: "70px" }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: "#ebebeb", mb: 1, padding: 0, height: "100px" }}>
                         <Avatar src={selected.tokenIcon} sx={{ width: 30, height: 30, mr: 1 }} />
-                        <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'left', mb: 0, fontSize: "18px" }}>
-                            {selected.opportunityName}
+                        <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'left', mb: 0, padding: 0 }}>
+                            <Box sx={{
+                                display: 'flex',
+                                flexDirection: "column",
+                                alignItems: 'left',
+                                mb: 0,
+                                fontSize: "18px",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                WebkitBoxOrient: 'vertical',
+                                display: '-webkit-box',
+                                maxHeight: '3em',
+                                overflowY: 'hidden'
+                            }}>
+                                {selected.opportunityName}
+                            </Box>
                             <Box sx={{ display: 'flex', alignItems: 'left', mb: 0 }}>
                                 <Typography sx={{ fontVariant: 'small-caps', fontSize: "10px", fontWeight: "bold", marginTop: "0px" }} color="text.secondary">
                                     {selected.issuerName}
@@ -260,7 +286,11 @@ export default function OpportunityGroupCard({ group }) {
                 </Box>
 
                 {/* Opportunity description: brief textual overview. */}
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 1, padding: 1 }}>
+                <Typography variant="body2" color="text.secondary" sx={{
+                    mt: 1, mb: 1, padding: 1, overflow: 'hidden', textOverflow: 'ellipsis',
+                    display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 5,
+                    whiteSpace: 'normal', width: '100%', height: '6.6rem',
+                }}>
                     {selected.description}
                 </Typography>
 
