@@ -52,7 +52,8 @@ export default function OpportunitiesList({ opportunities }) {
                             // width: '30%', // minimum width for each card   
                             maxWidth: '653px', // maximum width for each card
                             minWidth: '315px', // minimum width for each card    
-                            height:'636px',
+                            // height:'636px',
+                            // height: '100%',
                             justifyContent: 'center',
                             alignItems: 'flex-start',
                             flex: '1 0 0', 
