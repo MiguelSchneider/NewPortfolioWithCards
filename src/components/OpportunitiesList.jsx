@@ -56,7 +56,7 @@ export default function OpportunitiesList({ opportunities }) {
                             // height: '100%',
                             justifyContent: 'center',
                             alignItems: 'flex-start',
-                            flex: '1 0 0', 
+                            flex: '1 1 0', 
                         }}
                     >
                         <OpportunityGroupCard group={group} />

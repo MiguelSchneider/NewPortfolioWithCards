@@ -167,17 +167,18 @@ const FeatureList = ({ features }) => (
                         mb: 0,
                         padding: 0.4,
                         fontSize: '12px',
-                        borderBottom: idx < features.length - 1 ? '1px solid #ccc' : 'none',
-                        // backgroundColor: idx % 2 === 0 ? '#f6f6f6' : 'white',
+                        fontWeight: 400,
+                        color: "#00000099",
+                        borderBottom: idx < features.length - 1 ? '1px solid #0000001F' : 'none',
                     }}
                 >
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <strong>{feat.feature}</strong>
                         :
                         {feat.tooltip && <InfoOutlinedIcon fontSize="small" sx={{ ml: 0.5 }} />}
-                        
+
                     </Box>
-                    <Box>{feat.value}</Box>
+                    <Box sx={{color:"#000", fontWeight:"bold"}}>{feat.value}</Box>
                 </Box>
             </Tooltip>
         ))}
@@ -258,7 +259,18 @@ export default function OpportunityGroupCard({ group }) {
             }}>
                 {/* Header bar: shows the opportunity’s token icon, name, and issuer name in small-caps. */}
                 <Box sx={{ display: 'flex', flexDirection: "column" }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', backgroundColor: "#ebebeb", mb: 1, padding: 0, height: "100px" }}>
+                    <Box sx={{
+                        display: 'flex',
+                        alignItems: 'top',
+                        // backgroundColor: "#ebebeb",
+                        // mt: 1,
+                        // mb: 1,
+                        m: 1,
+                        padding: 0,
+                        // height: "100px"
+                        // height: "100px"
+                        height: "5em"
+                    }}>
                         <Avatar src={selected.tokenIcon} sx={{ width: 30, height: 30, mr: 1 }} />
                         <Box sx={{ display: 'flex', flexDirection: "column", alignItems: 'left', mb: 0, padding: 0 }}>
                             <Box sx={{
@@ -266,7 +278,7 @@ export default function OpportunityGroupCard({ group }) {
                                 flexDirection: "column",
                                 alignItems: 'left',
                                 mb: 0,
-                                fontSize: "18px",
+                                fontSize: "16px",
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
                                 WebkitBoxOrient: 'vertical',
@@ -277,7 +289,7 @@ export default function OpportunityGroupCard({ group }) {
                                 {selected.opportunityName}
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'left', mb: 0 }}>
-                                <Typography sx={{ fontVariant: 'small-caps', fontSize: "10px", fontWeight: "bold", marginTop: "0px" }} color="text.secondary">
+                                <Typography sx={{ fontVariant: 'all-small-caps', fontSize: "12px", fontWeight: "bold", marginTop: "0px" }} color="text.secondary">
                                     {selected.issuerName}
                                 </Typography>
                             </Box>
