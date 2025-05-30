@@ -12,10 +12,11 @@ const opportunities =
             "description": " The Fund aims to generate stable, liquid current income by investing exclusively in high-quality, short-term U.S. Treasury obligations, repurchase agreements secured by those obligations or cash, and similar minimal-credit-risk instruments.",
             "opportunityFeatures": [
                 { "feature": "MinInvestment", "value": "$5M" },
-                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%", "tooltip":"This is a simple tooltip to show the Annualized Distribution Rate" },
-                { "feature": "MgmtFees", "value": "8bps - 10bps" },
+                { "feature": "AnnualizedDistributionRate", "value": "9.15% - 10,1%", "tooltip": "This is a simple tooltip to show the Annualized Distribution Rate" },
+                { "feature": "MgmtFees", "value": "8bps - 10bps", "tooltip": "Variable Management fees depending on the selected blockchain" },
                 { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Daily - Instant" },
+                { "feature": "On-chain pricing by:", "value": "<image> redstone.png </image> <url> https://app.redstone.finance/app/token/BUIDL_FUNDAMENTAL/ </url>" },
             ],
             "tags": [
                 "Daily Yield",
@@ -39,6 +40,8 @@ const opportunities =
                 { "feature": "MgmtFees", "value": "10bps" },
                 { "feature": "AssetClass", "value": "Diversified Credit" },
                 { "feature": "Redemptions", "value": "Instant" },
+                { "feature": "On-chain pricing by:", "value": "<image> redstone.png </image> <url> https://app.redstone.finance/app/token/BUIDL_FUNDAMENTAL/ </url>" },
+
             ],
 
 
@@ -526,7 +529,7 @@ const opportunities =
                 "Collateral"
             ],
             "opportunityFeatures": [
-             
+
                 { "feature": "MgmtFees", "value": "20bps" },
                 { "feature": "AssetClass", value: "Diversified Credit" },
                 { "feature": "Redemptions", value: "Daily" },

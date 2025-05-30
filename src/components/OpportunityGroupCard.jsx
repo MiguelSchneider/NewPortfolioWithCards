@@ -19,9 +19,10 @@
  *  - Formats currency values via Intl.NumberFormat.
  *  - Conditionally renders UI controls and animations.
  */
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Button, Avatar, Box, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 
 // Helper to render status labels
 const StatusLabels = ({ labels }) => (
@@ -176,9 +177,24 @@ const FeatureList = ({ features }) => (
                         <strong>{feat.feature}</strong>
                         :
                         {feat.tooltip && <InfoOutlinedIcon fontSize="small" sx={{ ml: 0.5 }} />}
-
                     </Box>
-                    <Box sx={{color:"#000", fontWeight:"bold"}}>{feat.value}</Box>
+                    <Box sx={{ color: "#000", fontWeight: "bold" }}>
+                        {typeof feat.value === 'string' && feat.value.includes('<image>') && feat.value.includes('</image>')
+                            ? (
+                                <a
+                                    href={feat.value.match(/<url>(.*?)<\/url>/)?.[1].trim()}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src={`/images/${feat.value.match(/<image>(.*?)<\/image>/)[1].trim()}`}
+                                        alt={feat.feature}
+                                        style={{ height: '16px', verticalAlign: 'middle' }}
+                                    />
+                                </a>
+                            )
+                            : feat.value}
+                    </Box>
                 </Box>
             </Tooltip>
         ))}
