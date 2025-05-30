@@ -22,6 +22,7 @@
 import React, { useState, useMemo } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Button, Avatar, Box, Select, MenuItem, FormControl, Tooltip } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 
 // Helper to render status labels
@@ -179,18 +180,20 @@ const FeatureList = ({ features }) => (
                         {feat.tooltip && <InfoOutlinedIcon fontSize="small" sx={{ ml: 0.5 }} />}
                     </Box>
                     <Box sx={{ color: "#000", fontWeight: "bold" }}>
-                        {typeof feat.value === 'string' && feat.value.includes('<image>') && feat.value.includes('</image>')
+                        {typeof feat.value === 'string' && feat.value.includes('<image>') && feat.value.includes('<url>')
                             ? (
                                 <a
                                     href={feat.value.match(/<url>(.*?)<\/url>/)?.[1].trim()}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
                                 >
                                     <img
                                         src={`/images/${feat.value.match(/<image>(.*?)<\/image>/)[1].trim()}`}
                                         alt={feat.feature}
                                         style={{ height: '16px', verticalAlign: 'middle' }}
                                     />
+                                    <OpenInNewIcon sx={{ fontSize: '12px', opacity: 0.7 }} />
                                 </a>
                             )
                             : feat.value}
